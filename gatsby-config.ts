@@ -1,4 +1,7 @@
 import type { GatsbyConfig } from 'gatsby';
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -16,10 +19,13 @@ const config: GatsbyConfig = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-postcss',
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: 'gatsby-source-contentful',
       options: {
         name: 'images',
         path: './src/images/',
+        spaceId: process.env.SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        host: `preview.contentful.com`,
       },
       __key: 'images',
     },
