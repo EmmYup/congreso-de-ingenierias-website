@@ -4,7 +4,12 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 const Page = ({ data }) => {
-  return <pre>{JSON.stringify(data, null, 2)}</pre>;
+  return (
+    <main>
+      <h1>{data.contentfulPage.title}</h1>
+      <p>{data.contentfulPage.description.description}</p>
+    </main>
+  );
 };
 
 export const data = graphql`
