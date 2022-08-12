@@ -8,6 +8,7 @@ import HeroSection from "../components/herosection"
 import SectionLayout from "../components/sectionlayout"
 import SpeakerCard from "../components/cards/speaker"
 import CategoryCard from "../components/cards/category"
+import Quote from "../components/quote"
 
 const categories = [
   {
@@ -87,6 +88,7 @@ const IndexPage = () => (
         <CategoryCard {...category} />
       ))}
     </SectionLayout>
+    <Quote />
   </Layout>
 )
 
