@@ -1,20 +1,61 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
 import HeroSection from "../components/herosection"
-import SpeakersSection from "../components/speakerssection"
+import SectionLayout from "../components/sectionlayout"
+import SpeakerCard from "../components/cards/speaker"
 
-const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
+const speakers = [
+  {
+    imageUrl: "https://dummyimage.com/80x80/edf2f7/a5afbd",
+    fullName: "Holden Caulfield",
+    jobTitle: "UI Designer",
+  },
+  {
+    imageUrl: "https://dummyimage.com/80x80/edf2f7/a5afbd",
+    fullName: "Henry Letham",
+    jobTitle: "UI Designer",
+  },
+  {
+    imageUrl: "https://dummyimage.com/80x80/edf2f7/a5afbd",
+    fullName: "Holden Caulfield",
+    jobTitle: "CTO",
+  },
+  {
+    imageUrl: "https://dummyimage.com/80x80/edf2f7/a5afbd",
+    fullName: "Oskar Blinde",
+    jobTitle: "Founder",
+  },
+  {
+    imageUrl: "https://dummyimage.com/80x80/edf2f7/a5afbd",
+    fullName: "Atticus Finch",
+    jobTitle: "QA Engineer",
+  },
+  {
+    imageUrl: "https://dummyimage.com/80x80/edf2f7/a5afbd",
+    fullName: "Alper Kamu",
+    jobTitle: "UX Engineer",
+  },
+]
+
+const speakerSectionProps = {
+  title: "Conoce a nuestros ponentes",
+  subtitle:
+    "Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them.",
+}
 
 const IndexPage = () => (
   <Layout>
     <Seo title="Home" />
     <HeroSection />
-    <SpeakersSection />
+    <SectionLayout {...speakerSectionProps}>
+      {speakers.map(speaker => (
+        <SpeakerCard {...speaker} />
+      ))}
+    </SectionLayout>
   </Layout>
 )
 
