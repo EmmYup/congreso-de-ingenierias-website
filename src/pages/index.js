@@ -7,6 +7,26 @@ import * as styles from "../components/index.module.css"
 import HeroSection from "../components/herosection"
 import SectionLayout from "../components/sectionlayout"
 import SpeakerCard from "../components/cards/speaker"
+import CategoryCard from "../components/cards/category"
+
+const categories = [
+  {
+    imageUrl: "https://flowbite.com/docs/images/blog/image-1.jpg",
+    url: "#",
+  },
+  {
+    imageUrl: "https://flowbite.com/docs/images/blog/image-1.jpg",
+    url: "#",
+  },
+  {
+    imageUrl: "https://flowbite.com/docs/images/blog/image-1.jpg",
+    url: "#",
+  },
+  {
+    imageUrl: "https://flowbite.com/docs/images/blog/image-1.jpg",
+    url: "#",
+  },
+]
 
 const speakers = [
   {
@@ -47,6 +67,12 @@ const speakerSectionProps = {
     "Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them.",
 }
 
+const categorySectionProps = {
+  title: "Explora las ingenierías",
+  subtitle:
+    "Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them.",
+}
+
 const IndexPage = () => (
   <Layout>
     <Seo title="Home" />
@@ -54,6 +80,11 @@ const IndexPage = () => (
     <SectionLayout {...speakerSectionProps}>
       {speakers.map(speaker => (
         <SpeakerCard {...speaker} />
+      ))}
+    </SectionLayout>
+    <SectionLayout {...categorySectionProps}>
+      {categories.map(category => (
+        <CategoryCard {...category} />
       ))}
     </SectionLayout>
   </Layout>
