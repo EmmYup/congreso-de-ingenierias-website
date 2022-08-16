@@ -9,6 +9,7 @@ import SectionLayout from "../components/sectionlayout"
 import SpeakerCard from "../components/cards/speaker"
 import CategoryCard from "../components/cards/category"
 import Quote from "../components/quote"
+import ImageCard from "../components/cards/image"
 
 const categories = [
   {
@@ -62,6 +63,25 @@ const speakers = [
   },
 ]
 
+const contests = [
+  {
+    imageUrl: "https://flowbite.com/docs/images/blog/image-1.jpg",
+    url: "#",
+  },
+  {
+    imageUrl: "https://flowbite.com/docs/images/blog/image-1.jpg",
+    url: "#",
+  },
+  {
+    imageUrl: "https://flowbite.com/docs/images/blog/image-1.jpg",
+    url: "#",
+  },
+  {
+    imageUrl: "https://flowbite.com/docs/images/blog/image-1.jpg",
+    url: "#",
+  },
+]
+
 const speakerSectionProps = {
   title: "Conoce a nuestros ponentes",
   subtitle:
@@ -72,6 +92,10 @@ const categorySectionProps = {
   title: "Explora las ingenierías",
   subtitle:
     "Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them.",
+}
+const contestSectionProps = {
+  title: "NUESTRAS COMPETENCIAS",
+  subtitle: "",
 }
 
 const IndexPage = () => (
@@ -89,6 +113,11 @@ const IndexPage = () => (
       ))}
     </SectionLayout>
     <Quote />
+    <SectionLayout {...contestSectionProps}>
+      {contests.map(contest => (
+        <ImageCard {...contest} />
+      ))}
+    </SectionLayout>
   </Layout>
 )
 
