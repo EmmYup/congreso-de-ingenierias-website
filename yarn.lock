@@ -4169,6 +4169,11 @@ cosmiconfig@^7.0.0:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
+countup.js@^2.2.0:
+  version "2.3.2"
+  resolved "https://artylab.expedia.biz/api/npm/public-npm-virtual/countup.js/-/countup.js-2.3.2.tgz#9a91d95780be1c908d1e6feb548625f353f57988"
+  integrity sha1-mpHZV4C+HJCNHm/rVIYl81P1eYg=
+
 create-gatsby@^2.20.0:
   version "2.20.0"
   resolved "https://registry.yarnpkg.com/create-gatsby/-/create-gatsby-2.20.0.tgz#5bf89650250420fc5e749464bf09c6d6fce2b6b3"
@@ -9143,6 +9148,13 @@ rc@1.2.8, rc@^1.2.7, rc@^1.2.8:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
+
+react-countup@^6.3.1:
+  version "6.3.1"
+  resolved "https://artylab.expedia.biz/api/npm/public-npm-virtual/react-countup/-/react-countup-6.3.1.tgz#ae4e8d33a7ed86c2cfc27e20b1fe76704f61d9fb"
+  integrity sha1-rk6NM6fthsLPwn4gsf52cE9h2fs=
+  dependencies:
+    countup.js "^2.2.0"
 
 react-dev-utils@^12.0.1:
   version "12.0.1"
