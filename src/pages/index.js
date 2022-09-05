@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import useAllSpeakers from "../hooks/use-all-speakers"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -10,6 +11,7 @@ import SpeakerCard from "../components/cards/speaker"
 import CategoryCard from "../components/cards/category"
 import Quote from "../components/quote"
 import ImageCard from "../components/cards/image"
+import Stats from "../components/stats"
 
 const categories = [
   {
@@ -27,39 +29,6 @@ const categories = [
   {
     imageUrl: "https://flowbite.com/docs/images/blog/image-1.jpg",
     url: "#",
-  },
-]
-
-const speakers = [
-  {
-    imageUrl: "https://dummyimage.com/80x80/edf2f7/a5afbd",
-    fullName: "Holden Caulfield",
-    jobTitle: "UI Designer",
-  },
-  {
-    imageUrl: "https://dummyimage.com/80x80/edf2f7/a5afbd",
-    fullName: "Henry Letham",
-    jobTitle: "UI Designer",
-  },
-  {
-    imageUrl: "https://dummyimage.com/80x80/edf2f7/a5afbd",
-    fullName: "Holden Caulfield",
-    jobTitle: "CTO",
-  },
-  {
-    imageUrl: "https://dummyimage.com/80x80/edf2f7/a5afbd",
-    fullName: "Oskar Blinde",
-    jobTitle: "Founder",
-  },
-  {
-    imageUrl: "https://dummyimage.com/80x80/edf2f7/a5afbd",
-    fullName: "Atticus Finch",
-    jobTitle: "QA Engineer",
-  },
-  {
-    imageUrl: "https://dummyimage.com/80x80/edf2f7/a5afbd",
-    fullName: "Alper Kamu",
-    jobTitle: "UX Engineer",
   },
 ]
 
@@ -98,28 +67,32 @@ const contestSectionProps = {
   subtitle: "",
 }
 
-const IndexPage = () => (
-  <Layout>
-    <Seo title="Home" />
-    <HeroSection />
-    <SectionLayout {...speakerSectionProps}>
-      {speakers.map(speaker => (
-        <SpeakerCard {...speaker} />
-      ))}
-    </SectionLayout>
-    <SectionLayout {...categorySectionProps}>
-      {categories.map(category => (
-        <CategoryCard {...category} />
-      ))}
-    </SectionLayout>
-    <Quote />
-    <SectionLayout {...contestSectionProps}>
-      {contests.map(contest => (
-        <ImageCard {...contest} />
-      ))}
-    </SectionLayout>
-  </Layout>
-)
+const IndexPage = () => {
+  const speakers = useAllSpeakers().slice(0, 6)
+  return (
+    <Layout>
+      <Seo title="Home" />
+      <HeroSection />
+      <Stats />
+      <SectionLayout {...speakerSectionProps}>
+        {speakers.map(speaker => (
+          <SpeakerCard {...speaker} />
+        ))}
+      </SectionLayout>
+      <SectionLayout {...categorySectionProps}>
+        {categories.map(category => (
+          <CategoryCard {...category} />
+        ))}
+      </SectionLayout>
+      <Quote />
+      <SectionLayout {...contestSectionProps}>
+        {contests.map(contest => (
+          <ImageCard {...contest} />
+        ))}
+      </SectionLayout>
+    </Layout>
+  )
+}
 
 /**
  * Head export to define metadata for the page
