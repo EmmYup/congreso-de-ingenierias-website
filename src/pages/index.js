@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 import useAllSpeakers from "../hooks/use-all-speakers"
 
@@ -51,33 +51,39 @@ const contests = [
   },
 ]
 
-const speakerSectionProps = {
-  title: "Conoce a nuestros ponentes",
-  subtitle:
-    "Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them.",
-}
-
 const categorySectionProps = {
   title: "Explora las ingenierías",
   subtitle:
     "Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them.",
+  hideButton: true,
 }
 const contestSectionProps = {
   title: "NUESTRAS COMPETENCIAS",
   subtitle: "",
 }
 
+const renderSpeakerList = speakers =>
+  speakers.map(speaker => <SpeakerCard {...speaker} />)
+
 const IndexPage = () => {
-  const speakers = useAllSpeakers().slice(0, 6)
+  const [showAllSpeakers, setShowAllSpeakers] = useState(false)
+  const speakers = useAllSpeakers()
+
+  const speakerSectionProps = {
+    title: "Conoce a nuestros ponentes",
+    subtitle:
+      "Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them.",
+    onClick: () => setShowAllSpeakers(!showAllSpeakers),
+    buttonLabel: showAllSpeakers ? "Ver menos" : "Ver más",
+  }
+
   return (
     <Layout>
       <Seo title="Home" />
       <HeroSection />
       <Stats />
       <SectionLayout {...speakerSectionProps}>
-        {speakers.map(speaker => (
-          <SpeakerCard {...speaker} />
-        ))}
+        {renderSpeakerList(!showAllSpeakers ? speakers.slice(0, 6) : speakers)}
       </SectionLayout>
       <SectionLayout {...categorySectionProps}>
         {categories.map(category => (

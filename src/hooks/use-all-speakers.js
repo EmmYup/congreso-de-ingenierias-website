@@ -7,6 +7,7 @@ const useAllSpeakers = () => {
     query allSpeakersQuery {
       allContentfulSpeaker(sort: { fields: createdAt, order: DESC }) {
         nodes {
+          id
           name
           lastName
           jobTitle

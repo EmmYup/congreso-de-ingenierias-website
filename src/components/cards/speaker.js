@@ -1,13 +1,19 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-const SpeakerCard = ({ name, lastName, jobTitle, profilePicture: { url } }) => {
+const SpeakerCard = ({
+  id,
+  name,
+  lastName,
+  jobTitle,
+  profilePicture: { url },
+}) => {
   return (
-    <div className="p-2 lg:w-1/3 md:w-1/2 w-full">
+    <div key={id} className="p-2 lg:w-1/3 md:w-1/2 w-full">
       <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
         <img
           alt="team"
-          className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
+          className="w-24 h-24 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
           src={url}
         />
         <div className="flex-grow">
@@ -22,7 +28,9 @@ const SpeakerCard = ({ name, lastName, jobTitle, profilePicture: { url } }) => {
 export default SpeakerCard
 
 SpeakerCard.propTypes = {
-  imageUrl: PropTypes.string,
-  fullName: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  profilePicture: PropTypes.shape({ url: PropTypes.string }).isRequired,
+  name: PropTypes.string.isRequired,
+  lastName: PropTypes.string.isRequired,
   jobTitle: PropTypes.string.isRequired,
 }

@@ -1,7 +1,15 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-const SectionLayout = ({ children, title, subtitle }) => {
+const SectionLayout = props => {
+  const {
+    children,
+    title,
+    subtitle,
+    onClick,
+    buttonLabel,
+    hideButton = false,
+  } = props
   return (
     <section class="text-gray-700 body-font border-t border-gray-200">
       <div class="container px-5 py-24 mx-auto">
@@ -13,6 +21,14 @@ const SectionLayout = ({ children, title, subtitle }) => {
         </div>
         <div class="flex flex-wrap -m-4">{children}</div>
       </div>
+      <button
+        className={`${
+          hideButton ? "hidden" : ""
+        } flex mx-auto my-4 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg`}
+        onClick={onClick}
+      >
+        {buttonLabel}
+      </button>
     </section>
   )
 }
