@@ -52,12 +52,14 @@ const contests = [
 ]
 
 const categorySectionProps = {
+  id: "ingenierias",
   title: "Explora las ingenierías",
   subtitle:
     "Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them.",
   hideButton: true,
 }
 const contestSectionProps = {
+  id: "competencias",
   title: "NUESTRAS COMPETENCIAS",
   subtitle: "",
 }
@@ -70,6 +72,7 @@ const IndexPage = () => {
   const speakers = useAllSpeakers()
 
   const speakerSectionProps = {
+    id: "speakers",
     title: "Conoce a nuestros ponentes",
     subtitle:
       "Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them.",

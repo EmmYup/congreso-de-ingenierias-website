@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 
 const SectionLayout = props => {
   const {
+    id,
     children,
     title,
     subtitle,
@@ -11,7 +12,7 @@ const SectionLayout = props => {
     hideButton = false,
   } = props
   return (
-    <section class="text-gray-700 body-font border-t border-gray-200">
+    <section class="text-gray-700 body-font border-t border-gray-200" id={id}>
       <div class="container px-5 py-24 mx-auto">
         <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
           <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">
