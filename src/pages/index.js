@@ -1,10 +1,10 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
-import useAllSpeakers from "../hooks/use-all-speakers"
+import useAllSpeakers from "../hooks/useAllSpeakers"
+import useAllCategories from "../hooks/useAllCategories"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import * as styles from "../components/index.module.css"
 import HeroSection from "../components/herosection"
 import SectionLayout from "../components/sectionlayout"
 import SpeakerCard from "../components/cards/speaker"
@@ -12,25 +12,6 @@ import CategoryCard from "../components/cards/category"
 import Quote from "../components/quote"
 import ImageCard from "../components/cards/image"
 import Stats from "../components/stats"
-
-const categories = [
-  {
-    imageUrl: "https://flowbite.com/docs/images/blog/image-1.jpg",
-    url: "#",
-  },
-  {
-    imageUrl: "https://flowbite.com/docs/images/blog/image-1.jpg",
-    url: "#",
-  },
-  {
-    imageUrl: "https://flowbite.com/docs/images/blog/image-1.jpg",
-    url: "#",
-  },
-  {
-    imageUrl: "https://flowbite.com/docs/images/blog/image-1.jpg",
-    url: "#",
-  },
-]
 
 const contests = [
   {
@@ -68,8 +49,9 @@ const renderSpeakerList = speakers =>
   speakers.map(speaker => <SpeakerCard {...speaker} />)
 
 const IndexPage = () => {
-  const [showAllSpeakers, setShowAllSpeakers] = useState(false)
+  const [showAllSpeakers, setShowAllSpeakers] = useState({})
   const speakers = useAllSpeakers()
+  const categories = useAllCategories()
 
   const speakerSectionProps = {
     id: "speakers",

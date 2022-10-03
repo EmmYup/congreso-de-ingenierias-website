@@ -1,20 +1,17 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-const CategoryCard = () => {
+const CategoryCard = ({ id, name, url, imageUrl: { url: imageUrl } }) => {
   return (
-    <div className="p-2 lg:w-1/4 md:w-1/2 w-full">
+    <div className="p-2 lg:w-1/4 md:w-1/2 w-full" key={id}>
       <div className="max-w-sm">
-        <a href="#">
-          <img
-            className=""
-            src="https://flowbite.com/docs/images/blog/image-1.jpg"
-            alt=""
-          />
+        <a href={url} target="_blank" className="flex justify-center">
+          <img className="" src={imageUrl} alt="" />
         </a>
         <div className="p-2 flex justify-center">
           <a
-            href="#"
+            href={url}
+            target="_blank"
             className="no-underline inline-flex items-center py-4 px-10 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             Conoce más
